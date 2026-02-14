@@ -12,7 +12,7 @@ const bonusComunidade = "https://698bdb7424e527939449aabf.imgix.net/bonus-comuni
 export const COPY = {
   hero: {
     headline: "Delicioso. Saudável. Simples.",
-    subheadline: "O Sistema 200 Receitas Para Secar traz o equilíbrio perfeito entre sabor e resultados. Perca peso sem abrir mão do prazer de comer.",
+    subheadline: "200 receitas prontas para facilitar sua rotina, economizar tempo e trazer mais variedade para sua alimentação diária.",
     cta: "Começar Agora",
   },
   problems: [
