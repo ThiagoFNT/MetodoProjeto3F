@@ -552,7 +552,7 @@ const Offer = () => {
           <FadeIn delay={0.2}>
             <ul className="space-y-5 mb-12">
               {[
-                "E-book Método Projeto 3F (PDF)",
+                "Receitas de Café da Manhã (PDF)",
                 "Guia de Substituições",
                 "Calculadora de Calorias",
                 "Grupo VIP 30 Dias",
@@ -722,7 +722,7 @@ const FAQ = () => {
 const Footer = () => (
   <footer className="bg-white text-[#86868B] py-16 text-center text-sm border-t border-gray-100">
     <div className="max-w-[1080px] mx-auto px-6">
-      <p className="mb-6 font-semibold">&copy; {new Date().getFullYear()} Método Projeto 3F</p>
+      <p className="mb-6 font-semibold">&copy; {new Date().getFullYear()} Receitas de Café da Manhã</p>
       <div className="max-w-xl mx-auto">
         <p className="text-xs leading-relaxed text-[#D2D2D7]">
           Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
