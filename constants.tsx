@@ -238,7 +238,7 @@ export const COPY = {
           <p className="mb-4">Imediatamente após a compra.</p>
           <p className="mb-2">Você recebe:</p>
           <ul className="list-disc pl-5 space-y-1 mb-4">
-            <li>Acesso ao e-book Receitas Para Sua Manhã (PDF)</li>
+            <li>Acesso ao e-book Método Projeto 3F (PDF)</li>
             <li>Link para download de todos os bônus</li>
             <li>Convite para a comunidade exclusiva no WhatsApp</li>
           </ul>
