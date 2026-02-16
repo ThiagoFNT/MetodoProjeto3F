@@ -12,7 +12,7 @@ const bonusComunidade = "https://698bdb7424e527939449aabf.imgix.net/bonus-comuni
 export const COPY = {
   hero: {
     headline: "Delicioso. Saudável. Simples.",
-    subheadline: "200 receitas prontas para facilitar sua rotina, economizar tempo e trazer mais variedade para sua alimentação diária.",
+    subheadline: "Receitas deliciosas para transformar seu café da manhã, facilitar sua rotina e trazer mais energia para o seu dia.",
     cta: "Começar Agora",
   },
   problems: [
@@ -51,63 +51,49 @@ export const COPY = {
     ]
   },
   modules: {
-    title: "O Que Está Incluído",
+    title: "Sua Manhã Completa",
     categories: [
       {
-        name: "Café da Manhã",
+        name: "Energia",
         count: "50 Receitas",
-        examples: ["Panquecas fit", "Omeletes", "Mingau proteico", "Smoothies"]
+        examples: ["Sucos Detox", "Smoothies", "Cremosidade Fit", "Vitaminas"]
       },
       {
-        name: "Almoço",
+        name: "Proteínas",
         count: "50 Receitas",
-        examples: ["Marmitas práticas", "Saladas", "Grelhados", "Sopas"]
+        examples: ["Omeletes Diferenciados", "Ovos Benedict", "Mexidos Proteicos", "Frittatas"]
       },
       {
-        name: "Lanche",
+        name: "Carboidratos do Bem",
         count: "50 Receitas",
-        examples: ["Snacks", "Bolos saudáveis", "Biscoitos", "Iogurtes"]
+        examples: ["Panquecas de Aveia", "Tapiocas Recheadas", "Pães de Frigideira", "Waffles Fit"]
       },
       {
-        name: "Jantar",
+        name: "Praticidade",
         count: "50 Receitas",
-        examples: ["Pratos leves", "Receitas família", "Clássicos fit", "Caldos"]
+        examples: ["Iogurtes Caseiros", "Overnight Oats", "Granola Artesanal", "Bowls de Frutas"]
       }
     ]
   },
   bonuses: [
     {
-      title: "Guia de Substituição Inteligente",
-      description: "Aprenda a substituir farinha de trigo, leite e ovos. O segredo para adaptar receitas sem perder o sabor.",
-      price: "R$47",
+      title: "Guia de Substituições Eficientes",
+      description: "Aprenda a substituir glúten, lactose, ovo e crie variações vegetarianas deliciosas sem perder o sabor.",
+      price: "R$ 17",
       isFree: true,
       image: bonusSubstituicao
     },
     {
-      title: "Guia de Salvamento de Receitas",
-      description: "Resolução de Problemas Culinários. O manual definitivo para salvar qualquer prato que saiu do controle.",
-      price: "R$27",
-      isFree: true,
-      image: bonusSalvamento
-    },
-    {
-      title: "Calculadora de Calorias Personalizada",
-      description: "Defina sua meta e acompanhe sua evolução com gráficos precisos. O controle total na palma da sua mão.",
-      price: "R$37",
+      title: "Calculadora de Calorias",
+      description: "Descubra seu café da manhã ideal e acompanhe sua evolução com precisão na palma da sua mão.",
+      price: "R$ 12",
       isFree: true,
       image: bonusCalculadora
     },
     {
-      title: "Plano Progressivo de 30 Dias",
-      description: "Tenho um caminho claro. Um cronograma semanal passando por Fundação, Crescimento, Expansão e Realização.",
-      price: "R$67",
-      isFree: true,
-      image: bonusPlano
-    },
-    {
-      title: "Comunidade Exclusiva",
-      description: "Bônus de 90 Dias. Você não está sozinho: tire dúvidas, compartilhe resultados e mantenha a motivação em alta.",
-      price: "R$97",
+      title: "Grupo VIP 30 Dias",
+      description: "Suporte e motivação diária. Você não está sozinha: tire dúvidas e compartilhe resultados com a comunidade.",
+      price: "R$ 21",
       isFree: true,
       image: bonusComunidade
     }
@@ -136,10 +122,10 @@ export const COPY = {
     }
   ] as Testimonial[],
   pricing: {
-    totalValue: "R$322",
-    priceInstallments: "12x de R$2,06",
-    priceCash: "R$19,90",
-    dailyCost: "Menos de R$0,10 por receita.",
+    totalValue: "R$ 97",
+    priceInstallments: "2x de R$ 10,95 sem juros",
+    priceCash: "R$ 19,90",
+    dailyCost: "Economia de R$ 77,10 (79% OFF)",
     cta: "Comprar Agora"
   },
   faq: [
@@ -202,7 +188,7 @@ export const COPY = {
           <p className="mb-4">Porque não é uma dieta. <strong className="text-gray-900">É um sistema.</strong></p>
           <p className="mb-4">Dietas te dizem O QUE comer. Sistemas te ensinam COMO fazer, te dão suporte quando você erra, e te conectam com pessoas na mesma jornada.</p>
           <p className="mb-4">É a diferença entre receber um peixe e aprender a pescar.</p>
-          <p>E mais: 88% das pessoas que usaram este sistema reportaram perda de peso nas primeiras 4 semanas.</p>
+          <p>E mais: 88% das pessoas que usaram este sistema reportaram mais disposição e energia logo na primeira semana.</p>
         </>
       )
     },
@@ -225,9 +211,9 @@ export const COPY = {
           <ul className="list-disc pl-5 space-y-2 mb-4">
             <li><strong className="text-gray-900">Semana 1-2:</strong> Mais energia, menos inchaço</li>
             <li><strong className="text-gray-900">Semana 3-4:</strong> Primeira perda de peso visível (2-3kg)</li>
-            <li><strong className="text-gray-900">Mês 2-3:</strong> Mudança clara no corpo e na autoconfiança</li>
+            <li><strong className="text-gray-900">Semana 3-4:</strong> Mudança clara no corpo e na disposição</li>
           </ul>
-          <p>Lembre-se: emagrecimento saudável é um processo. Não é mágica. Mas com o sistema certo, os resultados vêm.</p>
+          <p>Lembre-se: uma manhã produtiva começa com a alimentação certa. Com o sistema certo, os resultados vêm.</p>
         </>
       )
     },
@@ -238,7 +224,7 @@ export const COPY = {
           <p className="mb-4">Imediatamente após a compra.</p>
           <p className="mb-2">Você recebe:</p>
           <ul className="list-disc pl-5 space-y-1 mb-4">
-            <li>Acesso ao e-book digital (PDF)</li>
+            <li>Acesso ao e-book Receitas Para Sua Manhã (PDF)</li>
             <li>Link para download de todos os bônus</li>
             <li>Convite para a comunidade exclusiva no WhatsApp</li>
           </ul>

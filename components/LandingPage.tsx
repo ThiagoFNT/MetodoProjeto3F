@@ -477,14 +477,14 @@ const Bonuses = () => {
 
               <h3 className="text-xl font-medium text-gray-400 mb-2">Valor Total dos Bônus</h3>
               <div className="text-5xl font-bold text-white mb-2 tracking-tight line-through decoration-red-500/80">
-                R$275
+                R$ 50
               </div>
               <div className="text-emerald-400 font-bold text-lg bg-emerald-500/10 px-4 py-1 rounded-full mb-8 border border-emerald-500/20">
                 100% GRÁTIS
               </div>
 
               <p className="text-gray-400 text-sm leading-relaxed max-w-[200px]">
-                Ao garantir seu acesso ao sistema hoje.
+                Ao garantir seu acesso hoje.
               </p>
             </div>
           </div>
@@ -552,12 +552,10 @@ const Offer = () => {
           <FadeIn delay={0.2}>
             <ul className="space-y-5 mb-12">
               {[
-                "200 Receitas Completas (PDF)",
-                "Guia de Substituição Inteligente",
-                "Guia de Salvamento de Receitas",
+                "Receitas Para Sua Manhã (PDF)",
+                "Guia de Substituições",
                 "Calculadora de Calorias",
-                "Plano Progressivo de 30 Dias",
-                "Comunidade Exclusiva"
+                "Grupo VIP 30 Dias"
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4">
                   <div className="w-5 h-5 rounded-full bg-[#0071E3] flex items-center justify-center shrink-0">
@@ -581,7 +579,8 @@ const Offer = () => {
                   <span className="text-lg text-[#6E6E73] line-through font-medium">{COPY.pricing.totalValue}</span>
                   <span className="text-5xl md:text-7xl font-bold text-white tracking-tight">{COPY.pricing.priceCash}</span>
                 </div>
-                <p className="text-[#86868b] text-lg font-medium">ou {COPY.pricing.priceInstallments}</p>
+                <p className="text-[#86868b] text-lg font-medium">{COPY.pricing.priceInstallments}</p>
+                <p className="text-emerald-400 text-sm font-bold mt-2">{COPY.pricing.dailyCost}</p>
               </div>
 
               <Button
@@ -646,7 +645,7 @@ const Guarantee = () => {
                   </li>
                   <li className="flex gap-3">
                     <div className="mt-1 min-w-[20px]"><Check size={20} className="text-green-500" /></div>
-                    <span className="text-[#424245] font-medium">Recebe acesso imediato a tudo: 200 receitas, 5 bônus e comunidade.</span>
+                    <span className="text-[#424245] font-medium">Recebe acesso imediato a tudo: receitas, bônus e comunidade.</span>
                   </li>
                   <li className="flex gap-3">
                     <div className="mt-1 min-w-[20px]"><Check size={20} className="text-green-500" /></div>
@@ -721,7 +720,7 @@ const FAQ = () => {
 const Footer = () => (
   <footer className="bg-white text-[#86868B] py-16 text-center text-sm border-t border-gray-100">
     <div className="max-w-[1080px] mx-auto px-6">
-      <p className="mb-6 font-semibold">&copy; {new Date().getFullYear()} Sistema 200 Receitas • Método Projeto 3F</p>
+      <p className="mb-6 font-semibold">&copy; {new Date().getFullYear()} Receitas Para Sua Manhã • Método Projeto 3F</p>
       <div className="max-w-xl mx-auto">
         <p className="text-xs leading-relaxed text-[#D2D2D7]">
           Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
