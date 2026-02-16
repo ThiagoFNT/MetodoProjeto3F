@@ -96,6 +96,20 @@ export const COPY = {
       price: "R$ 21",
       isFree: true,
       image: bonusComunidade
+    },
+    {
+      title: "Guia de Salvamento de Receitas",
+      description: "O manual definitivo para salvar qualquer prato que saiu do controle e evitar desperdícios.",
+      price: "R$ 24",
+      isFree: true,
+      image: bonusSalvamento
+    },
+    {
+      title: "Plano Progressivo de 30 Dias",
+      description: "Um cronograma semanal completo para guiar sua transformação e garantir resultados reais.",
+      price: "R$ 23",
+      isFree: true,
+      image: bonusPlano
     }
   ] as BonusItem[],
   testimonials: [
@@ -122,7 +136,7 @@ export const COPY = {
     }
   ] as Testimonial[],
   pricing: {
-    totalValue: "R$ 97",
+    totalValue: "R$ 144",
     priceInstallments: "2x de R$ 10,95 sem juros",
     priceCash: "R$ 19,90",
     dailyCost: "Economia de R$ 77,10 (79% OFF)",

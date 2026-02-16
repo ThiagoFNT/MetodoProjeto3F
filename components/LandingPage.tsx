@@ -477,7 +477,7 @@ const Bonuses = () => {
 
               <h3 className="text-xl font-medium text-gray-400 mb-2">Valor Total dos Bônus</h3>
               <div className="text-5xl font-bold text-white mb-2 tracking-tight line-through decoration-red-500/80">
-                R$ 50
+                R$ 97
               </div>
               <div className="text-emerald-400 font-bold text-lg bg-emerald-500/10 px-4 py-1 rounded-full mb-8 border border-emerald-500/20">
                 100% GRÁTIS
@@ -555,7 +555,9 @@ const Offer = () => {
                 "Receitas Para Sua Manhã (PDF)",
                 "Guia de Substituições",
                 "Calculadora de Calorias",
-                "Grupo VIP 30 Dias"
+                "Grupo VIP 30 Dias",
+                "Guia de Salvamento",
+                "Plano 30 Dias"
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4">
                   <div className="w-5 h-5 rounded-full bg-[#0071E3] flex items-center justify-center shrink-0">
@@ -645,7 +647,7 @@ const Guarantee = () => {
                   </li>
                   <li className="flex gap-3">
                     <div className="mt-1 min-w-[20px]"><Check size={20} className="text-green-500" /></div>
-                    <span className="text-[#424245] font-medium">Recebe acesso imediato a tudo: receitas, bônus e comunidade.</span>
+                    <span className="text-[#424245] font-medium">Recebe acesso imediato a tudo: receitas, 5 bônus e comunidade.</span>
                   </li>
                   <li className="flex gap-3">
                     <div className="mt-1 min-w-[20px]"><Check size={20} className="text-green-500" /></div>
