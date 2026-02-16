@@ -178,35 +178,15 @@ const VSL = ({ isUnlocked }: { isUnlocked: boolean }) => {
           </div>
 
           <div className="mt-10 text-center">
-            <AnimatePresence mode="wait">
-              {!isUnlocked ? (
-                <motion.div
-                  key="locked"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="space-y-2"
-                >
-                  <p className="text-xl md:text-2xl font-bold text-[#1D1D1F]">
-                    ⏳ Seu acesso está sendo preparado…
-                  </p>
-                  <p className="text-lg text-[#86868B] font-medium">
-                    Em 30 segundos você verá algo que pode mudar seus resultados.
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="unlocked"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  <p className="text-[#86868B] flex items-center justify-center gap-2 font-medium">
-                    <Zap size={16} className="text-blue-500" />
-                    Role para baixo para ver o conteúdo completo
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <p className="text-[#86868B] flex items-center justify-center gap-2 font-medium">
+                <Zap size={16} className="text-blue-500" />
+                Role para baixo para ver o conteúdo completo
+              </p>
+            </motion.div>
           </div>
         </FadeIn>
       </div>
@@ -754,22 +734,7 @@ const Footer = () => (
 );
 
 export const LandingPage = () => {
-  const [isUnlocked, setIsUnlocked] = useState(false);
-
-  useEffect(() => {
-    // Check if previously unlocked
-    if (localStorage.getItem('vsl_unlocked') === 'true') {
-      setIsUnlocked(true);
-      return;
-    }
-
-    const timer = setTimeout(() => {
-      setIsUnlocked(true);
-      localStorage.setItem('vsl_unlocked', 'true');
-    }, 30000); // 30 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [isUnlocked] = useState(true);
 
   return (
     <div className="font-sans antialiased bg-white selection:bg-blue-100 selection:text-blue-900">
