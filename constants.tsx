@@ -143,7 +143,7 @@ export const COPY = {
   ] as Testimonial[],
   pricing: {
     totalValue: "R$ 144",
-    priceInstallments: "ou 12x de R$ 2,06 sem juros",
+    priceInstallments: "ou 2x de R$ 10,47 sem juros",
     priceCash: "R$ 19,90",
     savingsLabel: "💰 Você economiza R$ 77,10 (79% OFF)",
     cta: "🔒 GARANTIR POR R$ 19,90 - ACESSO IMEDIATO"
