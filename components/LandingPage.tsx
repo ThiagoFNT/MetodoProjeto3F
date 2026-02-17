@@ -161,38 +161,7 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
   );
 };
 
-const VSL = ({ isUnlocked }: { isUnlocked: boolean }) => {
-  return (
-    <section className="bg-white py-20 overflow-hidden">
-      <div className="max-w-[1000px] mx-auto px-6">
-        <FadeIn>
-          <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl bg-black border border-gray-100 ring-1 ring-black/5">
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/5rEzZtKlzwk?autoplay=1&mute=1&rel=0&modestbranding=1&vq=hd1080"
-              title="VSL"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
 
-          <div className="mt-10 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <p className="text-[#86868B] flex items-center justify-center gap-2 font-medium">
-                <Zap size={16} className="text-blue-500" />
-                Role para baixo para ver o conteúdo completo
-              </p>
-            </motion.div>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-};
 
 const PainPoints = () => {
   return (
@@ -740,7 +709,6 @@ export const LandingPage = () => {
   return (
     <div className="font-sans antialiased bg-white selection:bg-blue-100 selection:text-blue-900">
       <Hero isUnlocked={isUnlocked} />
-      <VSL isUnlocked={isUnlocked} />
 
       <AnimatePresence>
         {isUnlocked && (
