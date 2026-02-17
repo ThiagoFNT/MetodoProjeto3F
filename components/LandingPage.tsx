@@ -179,16 +179,37 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
               <span className="text-7xl md:text-9xl font-black text-[#2D3748] tracking-tighter">
                 R$ 19,90
               </span>
-              <p className="text-emerald-600 font-bold text-lg md:text-xl mt-3 flex items-center gap-2 bg-emerald-50 px-5 py-2 rounded-full border border-emerald-100">
+              <p className="text-emerald-600 font-bold text-lg md:text-xl mt-3 flex items-center gap-2 bg-emerald-50 px-5 py-2 rounded-full border border-emerald-100 shadow-sm transition-transform hover:scale-105">
                 <Check size={20} /> ou 2x de R$ 10,95 sem juros
               </p>
+              <div className="mt-4 bg-[#10B981] text-white px-4 py-1.5 rounded-full text-sm font-black shadow-lg shadow-emerald-500/20 animate-bounce">
+                {COPY.pricing.savingsLabel}
+              </div>
             </div>
 
-            <Countdown className="mb-12" />
+            <Countdown className="mb-10" />
 
-            <p className="text-[13px] font-bold text-red-500 uppercase tracking-wide mb-2">
-              ⚠️ ATENÇÃO: Depois disso, volta para R$ 97
-            </p>
+            <div className="flex flex-col items-center gap-4 w-full max-w-sm">
+              <p className="text-[13px] font-black text-red-600 uppercase tracking-widest text-center leading-relaxed">
+                ⚠️ Depois disso, o preço volta para R$ 97<br />
+                Não perca esta oportunidade única!
+              </p>
+
+              <div className="w-full space-y-2">
+                <div className="flex justify-between text-[11px] font-black uppercase tracking-wider text-[#F97316]">
+                  <span>Restam apenas 43 vagas</span>
+                  <span>80% Preenchido</span>
+                </div>
+                <div className="h-3 w-full bg-gray-200 rounded-full overflow-hidden border border-gray-100 shadow-inner p-0.5">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "80%" }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="h-full bg-[#F97316] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.4)]"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </FadeIn>
 
@@ -564,17 +585,21 @@ const SocialProof = () => {
 
 const Offer = () => {
   return (
-    <Section id="offer" className="bg-[#1A202C]">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Removed order-2 class to ensure this text column appears first on mobile */}
+    <Section id="offer" className="bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] relative overflow-hidden">
+      {/* Visual Polish: Background Glows */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
         <div>
           <FadeIn>
-            <h2 className="text-3xl md:text-6xl font-bold text-white mb-2 tracking-tight leading-[1.1]">Comece agora.</h2>
-            {/* User requested 'what is in the image' under 'comece agora'. The text 'MÉTODO PROJETO 3F' is in the image. Styling it to match the image style. */}
-            <p className="text-sm font-bold text-[#A0AEC0] uppercase tracking-[0.2em] mb-12">Método Projeto 3F</p>
+            <h2 className="text-3xl md:text-6xl font-black text-white mb-2 tracking-tight leading-[1.1]">Comece agora.</h2>
+            <p className="text-sm font-bold text-amber-400 uppercase tracking-[0.2em] mb-12 flex items-center gap-2">
+              <span className="w-8 h-px bg-amber-400/30" /> Método Projeto 3F
+            </p>
 
-            <p className="text-xl md:text-2xl text-[#A0AEC0] mb-12 leading-relaxed">
-              Tudo o que você precisa para transformar sua alimentação, em um único pacote completo.
+            <p className="text-xl md:text-2xl text-[#A0AEC0] mb-12 leading-relaxed font-medium">
+              Tudo o que você precisa para transformar sua alimentação em um único pacote completo e imediato.
             </p>
           </FadeIn>
 
@@ -589,55 +614,83 @@ const Offer = () => {
                 "Plano Prático de 30 Dias"
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 group">
-                  <div className="w-6 h-6 rounded-full bg-[#10B981] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-6 h-6 rounded-full bg-[#10B981] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                     <Check size={14} className="text-white stroke-[3]" />
                   </div>
-                  <span className="text-[#CBD5E0] font-medium text-lg">{item}</span>
+                  <span className="text-[#CBD5E0] font-bold text-lg">{item}</span>
                 </li>
               ))}
             </ul>
           </FadeIn>
         </div>
 
-        {/* Removed order-1 class to ensure this pricing card column appears second on mobile */}
         <div>
           <FadeIn delay={0.3}>
-            <div className="bg-[#2D3748] rounded-[40px] p-8 md:p-14 text-center border border-white/5 relative overflow-hidden group shadow-2xl">
+            <div className="bg-[#1E293B]/80 backdrop-blur-xl rounded-[48px] p-8 md:p-14 text-center border border-white/10 relative overflow-hidden group shadow-[0_0_50px_rgba(0,0,0,0.3)] ring-1 ring-white/5">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
+
               <div className="mb-12">
                 <Countdown className="transform scale-90 md:scale-100" />
               </div>
 
               <div className="flex flex-col items-center mb-10">
-                <div className="flex flex-col items-center gap-1 mb-4">
-                  <span className="text-lg text-[#718096] line-through font-bold">De {COPY.pricing.totalValue}</span>
-                  <p className="text-xs font-black text-amber-400 uppercase tracking-widest">Oferta Hoje:</p>
+                <div className="flex flex-col items-center gap-1 mb-6">
+                  <span className="text-xl text-[#64748B] line-through font-bold">De {COPY.pricing.totalValue}</span>
+                  <div className="bg-amber-400/10 text-amber-400 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] border border-amber-400/20">
+                    Oferta Exclusiva Hoje
+                  </div>
                 </div>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-6xl md:text-8xl font-black text-white tracking-tighter">{COPY.pricing.priceCash}</span>
+
+                <div className="flex flex-col items-center mb-6">
+                  <span className="text-7xl md:text-9xl font-black text-white tracking-tighter drop-shadow-2xl">
+                    {COPY.pricing.priceCash}
+                  </span>
+                  <p className="text-emerald-400 text-2xl font-black mt-2 tracking-tight">
+                    {COPY.pricing.priceInstallments}
+                  </p>
+                  <p className="text-[#94A3B8] text-sm font-bold mt-4 uppercase tracking-widest bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
+                    {COPY.pricing.dailyCost}
+                  </p>
                 </div>
-                <p className="text-[#A0AEC0] text-xl font-bold">{COPY.pricing.priceInstallments}</p>
-                <p className="text-emerald-400 text-sm font-black mt-3 uppercase tracking-wider">{COPY.pricing.dailyCost}</p>
+
+                <div className="w-full max-w-xs space-y-3 mb-10">
+                  <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-[#F97316]">
+                    <span>Restam apenas 43 vagas</span>
+                    <span>80% Preenchido</span>
+                  </div>
+                  <div className="h-2.5 w-full bg-black/20 rounded-full overflow-hidden p-0.5 border border-white/5">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: "80%" }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                      className="h-full bg-gradient-to-r from-[#F97316] to-[#FB923C] rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)]"
+                    />
+                  </div>
+                </div>
               </div>
 
               <Button
                 variant="secondary"
                 size="lg"
                 fullWidth
-                className="h-20 text-xl font-bold rounded-full bg-[#10B981] hover:bg-[#059669] text-white border-none shadow-2xl shadow-emerald-500/20 mb-10 transition-transform hover:scale-[1.02]"
+                className="h-20 text-xl font-black rounded-full bg-[#10B981] hover:bg-[#059669] text-white border-none shadow-[0_10px_30px_rgba(16,185,129,0.3)] mb-8 transition-all hover:scale-[1.03] active:scale-95 group"
                 onClick={() => window.open(CHECKOUT_URL, '_blank')}
               >
-                {COPY.pricing.cta}
+                <div className="flex items-center justify-center gap-3">
+                  <ShieldCheck size={24} className="group-hover:animate-pulse" />
+                  {COPY.pricing.cta}
+                </div>
               </Button>
 
-              <div className="flex items-center justify-center gap-3 text-sm text-[#A0AEC0] font-bold mb-10">
-                <ShieldCheck size={18} className="text-emerald-500" />
-                <span>Garantia de 7 dias • Compra 100% Segura</span>
-              </div>
-
-              <div className="pt-10 border-t border-white/5">
-                <p className="text-xs text-[#718096] uppercase tracking-[0.3em] font-black">
-                  Protocolo Projeto 3F
-                </p>
+              <div className="flex items-center justify-center gap-3 text-sm text-[#94A3B8] font-bold">
+                <div className="flex -space-x-2 mr-2">
+                  {[1, 2, 3].map(i => (
+                    <div key={i} className="w-6 h-6 rounded-full border-2 border-[#1E293B] bg-gray-600 overflow-hidden">
+                      <img src={`https://i.pravatar.cc/100?u=${i + 10}`} alt="User" />
+                    </div>
+                  ))}
+                </div>
+                <span>437 pessoas compraram nas últimas 24h</span>
               </div>
             </div>
           </FadeIn>

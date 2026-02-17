@@ -13,7 +13,7 @@ export const COPY = {
   hero: {
     headline: "Transforme Suas Refeições em 10 Minutos (Sem Abrir Mão do Sabor)",
     subheadline: "Mais de 200 Receitas Práticas, Deliciosas e Saudáveis Que Toda a Família Vai Adorar.",
-    cta: "🔒 GARANTIR ACESSO POR R$ 19,90",
+    cta: "🔒 GARANTIR POR R$ 19,90 - ACESSO IMEDIATO",
     socialProof: {
       rating: "4.9/5",
       reviews: "2.847 avaliações",
@@ -85,35 +85,35 @@ export const COPY = {
     {
       title: "Guia de Substituições Eficientes",
       description: "Aprenda a substituir glúten, lactose, ovo e crie variações vegetarianas deliciosas sem perder o sabor.",
-      price: "R$ 17",
+      price: "De R$ 17 por",
       isFree: true,
       image: bonusSubstituicao
     },
     {
       title: "Calculadora de Calorias",
       description: "Descubra seu café da manhã ideal e acompanhe sua evolução com precisão na palma da sua mão.",
-      price: "R$ 12",
+      price: "De R$ 12 por",
       isFree: true,
       image: bonusCalculadora
     },
     {
       title: "Grupo VIP 30 Dias",
       description: "Suporte e motivação diária. Você não está sozinha: tire dúvidas e compartilhe resultados com a comunidade.",
-      price: "R$ 21",
+      price: "De R$ 21 por",
       isFree: true,
       image: bonusComunidade
     },
     {
       title: "Guia de Salvamento de Receitas",
       description: "O manual definitivo para salvar qualquer prato que saiu do controle e evitar desperdícios.",
-      price: "R$ 24",
+      price: "De R$ 24 por",
       isFree: true,
       image: bonusSalvamento
     },
     {
       title: "Plano Progressivo de 30 Dias",
       description: "Um cronograma semanal completo para guiar sua transformação e garantir resultados reais.",
-      price: "R$ 23",
+      price: "De R$ 23 por",
       isFree: true,
       image: bonusPlano
     }
@@ -145,8 +145,9 @@ export const COPY = {
     totalValue: "R$ 144",
     priceInstallments: "2x de R$ 10,95 sem juros",
     priceCash: "R$ 19,90",
-    dailyCost: "Economia de R$ 77,10 (79% OFF)",
-    cta: "Comprar Agora"
+    dailyCost: "Menos de R$ 0,67 por dia!",
+    savingsLabel: "💰 Você economiza R$ 77,10 (79% OFF)",
+    cta: "🔒 GARANTIR POR R$ 19,90 - ACESSO IMEDIATO"
   },
   faq: [
     {
