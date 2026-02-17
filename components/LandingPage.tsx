@@ -99,46 +99,28 @@ const Countdown = () => {
     const m = Math.floor((seconds % 3600) / 60);
     const s = seconds % 60;
 
-    if (h > 0) {
-      return (
-        <div className="flex gap-2 text-white font-mono font-bold">
-          <div className="flex flex-col items-center">
-            <span className="text-2xl">{h.toString().padStart(2, '0')}</span>
-            <span className="text-[8px] uppercase tracking-tighter opacity-50">Horas</span>
-          </div>
-          <span className="text-2xl opacity-30">:</span>
-          <div className="flex flex-col items-center">
-            <span className="text-2xl">{m.toString().padStart(2, '0')}</span>
-            <span className="text-[8px] uppercase tracking-tighter opacity-50">Min</span>
-          </div>
-          <span className="text-2xl opacity-30 text-emerald-500">:</span>
-          <div className="flex flex-col items-center">
-            <span className="text-2xl text-emerald-500">{s.toString().padStart(2, '0')}</span>
-            <span className="text-[8px] uppercase tracking-tighter opacity-50 text-emerald-500">Seg</span>
-          </div>
-        </div>
-      );
-    }
-
     return (
-      <div className="flex gap-3 text-white font-mono font-bold">
-        <div className="flex flex-col items-center bg-white/10 px-3 py-1 rounded-xl ring-1 ring-white/10">
-          <span className="text-2xl">{m.toString().padStart(2, '0')}</span>
-          <span className="text-[8px] uppercase tracking-tighter opacity-50">Minutos</span>
+      <div className="flex gap-2 text-white font-mono font-bold">
+        <div className="flex flex-col items-center bg-white/10 px-4 py-2 rounded-2xl ring-1 ring-white/10 min-w-[70px]">
+          <span className="text-3xl">{h.toString().padStart(2, '0')}</span>
+          <span className="text-[10px] uppercase tracking-tighter opacity-50">Horas</span>
         </div>
-        <div className="flex flex-col items-center bg-emerald-500/20 px-3 py-1 rounded-xl ring-1 ring-emerald-500/20">
-          <span className="text-2xl text-emerald-400">{s.toString().padStart(2, '0')}</span>
-          <span className="text-[8px] uppercase tracking-tighter opacity-50 text-emerald-400">Segundos</span>
+        <div className="flex flex-col items-center bg-white/10 px-4 py-2 rounded-2xl ring-1 ring-white/10 min-w-[70px]">
+          <span className="text-3xl">{m.toString().padStart(2, '0')}</span>
+          <span className="text-[10px] uppercase tracking-tighter opacity-50">Minutos</span>
+        </div>
+        <div className="flex flex-col items-center bg-emerald-500/20 px-4 py-2 rounded-2xl ring-1 ring-emerald-500/20 min-w-[70px]">
+          <span className="text-3xl text-emerald-400">{s.toString().padStart(2, '0')}</span>
+          <span className="text-[10px] uppercase tracking-tighter opacity-50 text-emerald-400">Segundos</span>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="flex items-center gap-2 text-red-500 animate-pulse">
-        <Zap size={14} className="fill-current" />
-        <span className="text-xs font-bold uppercase tracking-[0.2em]">Promoção termina em:</span>
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex items-center gap-2 text-red-500 font-bold uppercase tracking-[0.2em] text-xs">
+        <span className="animate-pulse">⏰ Promoção termina em:</span>
       </div>
       {formatTime(timeLeft)}
     </div>
@@ -149,15 +131,21 @@ const Countdown = () => {
 
 const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
   return (
-    <section className="relative flex flex-col pt-32 pb-20 items-center bg-white overflow-hidden">
-      <div className="max-w-[1080px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-
-        {/* Ambient Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-400/10 blur-[120px] rounded-full pointer-events-none" />
-
         <FadeIn>
-          {/* Social Proof Review */}
-          <div className="flex flex-col items-center gap-3 mb-10">
+          <h1 className="text-4xl md:text-[80px] font-semibold tracking-tight text-[#1D1D1F] mb-6 max-w-4xl leading-[1.05]">
+            {COPY.hero.headline}
+          </h1>
+        </FadeIn>
+
+        <FadeIn delay={0.1}>
+          <p className="text-[21px] md:text-[24px] font-medium text-[#86868B] mb-12 max-w-2xl leading-relaxed whitespace-pre-line">
+            {COPY.hero.subheadline.replace('. ', '.\n')}
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.2} className="w-full max-w-lg mb-12">
+          <div className="h-px bg-gray-100 w-full mb-8" />
+          <div className="flex flex-col items-center gap-3">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={18} className="fill-amber-400 text-amber-400" />
@@ -165,55 +153,37 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
               <span className="ml-2 font-bold text-[#1D1D1F]">{COPY.hero.socialProof.rating}</span>
               <span className="text-[#86868B] text-sm font-medium">({COPY.hero.socialProof.reviews})</span>
             </div>
-            <p className="text-sm font-medium text-[#86868B] italic">
+            <p className="text-sm font-medium text-[#86868B] italic text-center">
               "{COPY.hero.socialProof.testimonial}" — <span className="text-[#1D1D1F] not-italic font-bold">{COPY.hero.socialProof.author}</span>
             </p>
           </div>
-
-          <h1 className="text-4xl md:text-[80px] font-semibold tracking-tight text-[#1D1D1F] mb-6 max-w-4xl leading-[1.05]">
-            {COPY.hero.headline}
-          </h1>
+          <div className="h-px bg-gray-100 w-full mt-8" />
         </FadeIn>
 
-        <FadeIn delay={0.1}>
-          <p className="text-[21px] md:text-[24px] font-medium text-[#86868B] mb-12 max-w-2xl leading-relaxed">
-            {COPY.hero.subheadline}
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.2} className="mb-12">
+        <FadeIn delay={0.3} className="bg-black/95 p-8 md:p-12 rounded-[40px] shadow-2xl w-full max-w-2xl mb-12 border border-white/10 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-emerald-500 to-red-500" />
           <Countdown />
-        </FadeIn>
-
-        <FadeIn delay={0.3} className="mb-10">
-          <div className="flex flex-col items-center bg-gray-50 px-8 py-6 rounded-[32px] border border-gray-100 shadow-sm">
-            <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">De <span className="line-through">R$ 97</span> por apenas:</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-5xl font-bold text-[#1D1D1F]">R$ 19,90</span>
+          
+          <div className="mt-12 flex flex-col items-center">
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 text-center">De R$ 97 por apenas:</p>
+            <div className="flex flex-col items-center mb-10">
+              <span className="text-6xl md:text-8xl font-bold text-white tracking-tighter">R$ 19,90</span>
+              <p className="text-emerald-400 font-bold text-lg md:text-xl mt-2 text-center">ou 2x de R$ 10,95 sem juros</p>
             </div>
-            <p className="text-emerald-600 font-bold mt-1">ou 2x de R$ 10,95 sem juros</p>
+
+            <Button variant="secondary" size="lg" className="h-16 md:h-20 px-12 md:px-16 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white text-lg md:text-xl font-bold shadow-xl shadow-blue-500/20 w-full transition-transform hover:scale-[1.02]" onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}>
+              {COPY.hero.cta}
+            </Button>
+            
+            <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] md:text-[13px] font-bold text-gray-500 uppercase tracking-wider text-center">
+              <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Acesso Imediato</span>
+              <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Garantia 7 Dias</span>
+              <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Pagamento Seguro</span>
+            </div>
           </div>
         </FadeIn>
-
-        <AnimatePresence>
-          {isUnlocked && (
-            <FadeIn delay={0.4}>
-              <div className="flex flex-col items-center gap-6">
-                <Button variant="secondary" size="lg" className="rounded-full px-12 h-16 text-lg font-bold shadow-2xl shadow-blue-500/40 transform hover:scale-105 transition-all" onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}>
-                  {COPY.hero.cta}
-                </Button>
-
-                <div className="flex flex-wrap justify-center gap-6 text-[13px] font-bold text-[#86868B] uppercase tracking-wider">
-                  <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Acesso Imediato</span>
-                  <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Garantia 7 Dias</span>
-                  <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Pagamento Seguro</span>
-                </div>
-              </div>
-            </FadeIn>
-          )}
-        </AnimatePresence>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 
