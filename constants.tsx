@@ -12,8 +12,14 @@ const bonusComunidade = "https://698bdb7424e527939449aabf.imgix.net/bonus-comuni
 export const COPY = {
   hero: {
     headline: "Delicioso. Saudável. Simples.",
-    subheadline: "Receitas deliciosas para transformar seu café da manhã, facilitar sua rotina e trazer mais energia para o seu dia.",
-    cta: "Começar Agora",
+    subheadline: "Receitas incríveis para fazer em até 10 minutos. Feitas com amor para quem não quer sofrer para ter dia dia.",
+    cta: "🔒 GARANTIR ACESSO POR R$ 19,90",
+    socialProof: {
+      rating: "4.9/5",
+      reviews: "2.847 avaliações",
+      testimonial: "Transformou minhas manhãs!",
+      author: "Julia, RJ"
+    }
   },
   problems: [
     {
@@ -287,6 +293,25 @@ export const COPY = {
           <p className="mb-4">As receitas são deliciosas e aprovadas por famílias reais.</p>
           <p className="mb-4">Você não precisa fazer "comida de dieta" para você e "comida normal" para a família.</p>
           <p>Todo mundo come junto. Todo mundo fica satisfeito.</p>
+        </>
+      )
+    },
+    {
+      question: "Quanto tempo tenho pra usar as receitas?",
+      answer: (
+        <>
+          <p className="mb-4">O acesso é <strong className="text-gray-900">vitalício</strong>.</p>
+          <p>Uma vez que você adquire o sistema, ele é seu para sempre. Pode baixar, imprimir e acessar quando quiser, sem mensalidades ou taxas extras.</p>
+        </>
+      )
+    },
+    {
+      question: "Funciona para toda a família?",
+      answer: (
+        <>
+          <p className="mb-4"><strong className="text-gray-900">SIM.</strong></p>
+          <p className="mb-4">As receitas são pensadas para agradar a todos, desde as crianças até os adultos.</p>
+          <p>Você não precisará cozinhar pratos diferentes. É comida de verdade, saborosa e nutritiva que todos vão amar.</p>
         </>
       )
     },

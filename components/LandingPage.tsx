@@ -84,12 +84,12 @@ const StickyCTA = () => (
 );
 
 const Countdown = () => {
-  const TOTAL_SECONDS = 24 * 60 * 60;
-  const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
+  const INITIAL_TIME = 15 * 60; // 15 minutes
+  const [timeLeft, setTimeLeft] = useState(INITIAL_TIME);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft((prev) => (prev <= 1 ? TOTAL_SECONDS : prev - 1));
+      setTimeLeft((prev) => (prev <= 1 ? INITIAL_TIME : prev - 1));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -98,15 +98,49 @@ const Countdown = () => {
     const h = Math.floor(seconds / 3600);
     const m = Math.floor((seconds % 3600) / 60);
     const s = seconds % 60;
-    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
+    if (h > 0) {
+      return (
+        <div className="flex gap-2 text-white font-mono font-bold">
+          <div className="flex flex-col items-center">
+            <span className="text-2xl">{h.toString().padStart(2, '0')}</span>
+            <span className="text-[8px] uppercase tracking-tighter opacity-50">Horas</span>
+          </div>
+          <span className="text-2xl opacity-30">:</span>
+          <div className="flex flex-col items-center">
+            <span className="text-2xl">{m.toString().padStart(2, '0')}</span>
+            <span className="text-[8px] uppercase tracking-tighter opacity-50">Min</span>
+          </div>
+          <span className="text-2xl opacity-30 text-emerald-500">:</span>
+          <div className="flex flex-col items-center">
+            <span className="text-2xl text-emerald-500">{s.toString().padStart(2, '0')}</span>
+            <span className="text-[8px] uppercase tracking-tighter opacity-50 text-emerald-500">Seg</span>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex gap-3 text-white font-mono font-bold">
+        <div className="flex flex-col items-center bg-white/10 px-3 py-1 rounded-xl ring-1 ring-white/10">
+          <span className="text-2xl">{m.toString().padStart(2, '0')}</span>
+          <span className="text-[8px] uppercase tracking-tighter opacity-50">Minutos</span>
+        </div>
+        <div className="flex flex-col items-center bg-emerald-500/20 px-3 py-1 rounded-xl ring-1 ring-emerald-500/20">
+          <span className="text-2xl text-emerald-400">{s.toString().padStart(2, '0')}</span>
+          <span className="text-[8px] uppercase tracking-tighter opacity-50 text-emerald-400">Segundos</span>
+        </div>
+      </div>
+    );
   };
 
   return (
-    <div className="bg-[#252525] rounded-full px-6 py-2.5 inline-flex items-center gap-3 mb-10 shadow-inner ring-1 ring-white/5">
-      <span className="text-[10px] font-bold text-[#86868B] uppercase tracking-[0.15em]">Oferta expira em</span>
-      <div className="text-lg font-mono font-medium text-white tabular-nums tracking-wide leading-none">
-        {formatTime(timeLeft)}
+    <div className="flex flex-col items-center gap-3">
+      <div className="flex items-center gap-2 text-red-500 animate-pulse">
+        <Zap size={14} className="fill-current" />
+        <span className="text-xs font-bold uppercase tracking-[0.2em]">Promoção termina em:</span>
       </div>
+      {formatTime(timeLeft)}
     </div>
   );
 };
@@ -122,13 +156,18 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-400/10 blur-[120px] rounded-full pointer-events-none" />
 
         <FadeIn>
-          {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.03)] mb-8 hover:scale-105 transition-transform duration-300 cursor-default">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-sm font-medium text-gray-600">Mais de 10.000 vidas transformadas</span>
+          {/* Social Proof Review */}
+          <div className="flex flex-col items-center gap-3 mb-10">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={18} className="fill-amber-400 text-amber-400" />
+              ))}
+              <span className="ml-2 font-bold text-[#1D1D1F]">{COPY.hero.socialProof.rating}</span>
+              <span className="text-[#86868B] text-sm font-medium">({COPY.hero.socialProof.reviews})</span>
+            </div>
+            <p className="text-sm font-medium text-[#86868B] italic">
+              "{COPY.hero.socialProof.testimonial}" — <span className="text-[#1D1D1F] not-italic font-bold">{COPY.hero.socialProof.author}</span>
+            </p>
           </div>
 
           <h1 className="text-4xl md:text-[80px] font-semibold tracking-tight text-[#1D1D1F] mb-6 max-w-4xl leading-[1.05]">
@@ -137,21 +176,38 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <p className="text-[21px] md:text-[24px] font-medium text-[#86868B] mb-10 max-w-2xl leading-relaxed">
+          <p className="text-[21px] md:text-[24px] font-medium text-[#86868B] mb-12 max-w-2xl leading-relaxed">
             {COPY.hero.subheadline}
           </p>
         </FadeIn>
 
+        <FadeIn delay={0.2} className="mb-12">
+          <Countdown />
+        </FadeIn>
+
+        <FadeIn delay={0.3} className="mb-10">
+          <div className="flex flex-col items-center bg-gray-50 px-8 py-6 rounded-[32px] border border-gray-100 shadow-sm">
+            <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">De <span className="line-through">R$ 97</span> por apenas:</p>
+            <div className="flex items-baseline gap-2">
+              <span className="text-5xl font-bold text-[#1D1D1F]">R$ 19,90</span>
+            </div>
+            <p className="text-emerald-600 font-bold mt-1">ou 2x de R$ 10,95 sem juros</p>
+          </div>
+        </FadeIn>
+
         <AnimatePresence>
           {isUnlocked && (
-            <FadeIn delay={0.2}>
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center">
-                <Button variant="secondary" size="lg" className="rounded-full px-10 shadow-lg shadow-blue-500/20" onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}>
+            <FadeIn delay={0.4}>
+              <div className="flex flex-col items-center gap-6">
+                <Button variant="secondary" size="lg" className="rounded-full px-12 h-16 text-lg font-bold shadow-2xl shadow-blue-500/40 transform hover:scale-105 transition-all" onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}>
                   {COPY.hero.cta}
                 </Button>
-                <Button variant="ghost" size="lg" onClick={() => document.getElementById('mechanism')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Saiba mais <ArrowRight size={16} className="ml-2" />
-                </Button>
+
+                <div className="flex flex-wrap justify-center gap-6 text-[13px] font-bold text-[#86868B] uppercase tracking-wider">
+                  <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Acesso Imediato</span>
+                  <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Garantia 7 Dias</span>
+                  <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Pagamento Seguro</span>
+                </div>
               </div>
             </FadeIn>
           )}
@@ -241,6 +297,8 @@ const Mechanism = () => {
             </h2>
             <p className="text-xl text-[#86868B] mb-12 font-medium leading-relaxed">
               {COPY.mechanism.description}
+              <br />
+              <span className="text-emerald-600 font-bold text-sm uppercase tracking-wider block mt-4">Incluso: Versões sem glúten e sem lactose</span>
             </p>
           </FadeIn>
 
@@ -410,9 +468,9 @@ const Bonuses = () => {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/2 transition-colors duration-500" />
 
                 {/* Badge */}
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2 border border-white/50">
-                  <span className="text-xs font-medium text-gray-400 line-through">{bonus.price}</span>
-                  <span className="text-[10px] font-bold text-white bg-emerald-500 px-2 py-0.5 rounded-full tracking-wide">GRÁTIS</span>
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm flex flex-col items-end border border-white/50">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-tighter">De {bonus.price} por</span>
+                  <span className="text-[11px] font-bold text-white bg-emerald-500 px-2 py-0.5 rounded-lg tracking-wide shadow-sm">GRÁTIS</span>
                 </div>
               </div>
 
@@ -543,7 +601,9 @@ const Offer = () => {
         <div>
           <FadeIn delay={0.3}>
             <div className="bg-[#1c1c1e] rounded-[40px] p-6 md:p-14 text-center border border-white/5 relative overflow-hidden group shadow-2xl">
-              <Countdown />
+              <div className="mb-10 transform scale-90 md:scale-100">
+                <Countdown />
+              </div>
 
               <div className="flex flex-col items-center mb-10">
                 <div className="flex items-center gap-4 mb-2">
