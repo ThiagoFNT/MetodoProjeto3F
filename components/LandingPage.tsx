@@ -83,7 +83,7 @@ const StickyCTA = () => (
   </motion.div>
 );
 
-const Countdown = () => {
+const Countdown = ({ className = "" }: { className?: string }) => {
   const INITIAL_TIME = 15 * 60; // 15 minutes
   const [timeLeft, setTimeLeft] = useState(INITIAL_TIME);
 
@@ -100,27 +100,33 @@ const Countdown = () => {
     const s = seconds % 60;
 
     return (
-      <div className="flex gap-2 text-white font-mono font-bold">
-        <div className="flex flex-col items-center bg-white/10 px-4 py-2 rounded-2xl ring-1 ring-white/10 min-w-[70px]">
-          <span className="text-3xl">{h.toString().padStart(2, '0')}</span>
-          <span className="text-[10px] uppercase tracking-tighter opacity-50">Horas</span>
+      <div className="flex gap-4 md:gap-6 text-[#2D3748] font-bold">
+        <div className="flex flex-col items-center">
+          <div className="bg-white/80 backdrop-blur-sm px-4 md:px-6 py-3 rounded-2xl ring-1 ring-gray-200 shadow-sm min-w-[70px] md:min-w-[90px]">
+            <span className="text-3xl md:text-5xl font-mono">{h.toString().padStart(2, '0')}</span>
+          </div>
+          <span className="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 mt-2 font-semibold">Horas</span>
         </div>
-        <div className="flex flex-col items-center bg-white/10 px-4 py-2 rounded-2xl ring-1 ring-white/10 min-w-[70px]">
-          <span className="text-3xl">{m.toString().padStart(2, '0')}</span>
-          <span className="text-[10px] uppercase tracking-tighter opacity-50">Minutos</span>
+        <div className="flex flex-col items-center">
+          <div className="bg-white/80 backdrop-blur-sm px-4 md:px-6 py-3 rounded-2xl ring-1 ring-gray-200 shadow-sm min-w-[70px] md:min-w-[90px]">
+            <span className="text-3xl md:text-5xl font-mono">{m.toString().padStart(2, '0')}</span>
+          </div>
+          <span className="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 mt-2 font-semibold">Minutos</span>
         </div>
-        <div className="flex flex-col items-center bg-emerald-500/20 px-4 py-2 rounded-2xl ring-1 ring-emerald-500/20 min-w-[70px]">
-          <span className="text-3xl text-emerald-400">{s.toString().padStart(2, '0')}</span>
-          <span className="text-[10px] uppercase tracking-tighter opacity-50 text-emerald-400">Segundos</span>
+        <div className="flex flex-col items-center">
+          <div className="bg-[#F97316]/10 px-4 md:px-6 py-3 rounded-2xl ring-1 ring-[#F97316]/30 shadow-sm min-w-[70px] md:min-w-[90px]">
+            <span className="text-3xl md:text-5xl font-mono text-[#F97316]">{s.toString().padStart(2, '0')}</span>
+          </div>
+          <span className="text-[10px] md:text-xs uppercase tracking-wider text-[#F97316] mt-2 font-semibold">Segundos</span>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex items-center gap-2 text-red-500 font-bold uppercase tracking-[0.2em] text-xs">
-        <span className="animate-pulse">⏰ Promoção termina em:</span>
+    <div className={`flex flex-col items-center gap-6 ${className}`}>
+      <div className="flex items-center gap-2 text-[#C2410C] font-black uppercase tracking-[0.25em] text-xs">
+        <span className="animate-pulse">⚠️ Promoção termina em:</span>
       </div>
       {formatTime(timeLeft)}
     </div>
@@ -131,62 +137,83 @@ const Countdown = () => {
 
 const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
   return (
-    <section className="relative flex flex-col pt-32 pb-20 items-center bg-white overflow-hidden">
+    <section className="relative flex flex-col pt-24 pb-20 items-center bg-white overflow-hidden">
       <div className="max-w-[1080px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-        {/* Ambient Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-400/10 blur-[120px] rounded-full pointer-events-none" />
 
         <FadeIn>
-          <h1 className="text-4xl md:text-[80px] font-semibold tracking-tight text-[#1D1D1F] mb-6 max-w-4xl leading-[1.05]">
+          <h1 className="text-4xl md:text-[64px] font-bold tracking-tight text-[#2D3748] mb-6 max-w-4xl leading-[1.15]">
             {COPY.hero.headline}
           </h1>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <p className="text-[21px] md:text-[24px] font-medium text-[#86868B] mb-12 max-w-2xl leading-relaxed whitespace-pre-line">
-            {COPY.hero.subheadline.replace('. ', '.\n')}
+          <p className="text-lg md:text-xl font-medium text-[#718096] mb-10 max-w-2xl leading-relaxed">
+            {COPY.hero.subheadline}
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.2} className="w-full max-w-lg mb-12">
-          <div className="h-px bg-gray-100 w-full mb-8" />
-          <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-1">
+        <FadeIn delay={0.15} className="mb-10">
+          <div className="flex items-center gap-1.5 justify-center py-2 px-4 bg-amber-50 rounded-full border border-amber-100">
+            <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={18} className="fill-amber-400 text-amber-400" />
+                <Star key={i} size={16} className="fill-[#F59E0B] text-[#F59E0B]" />
               ))}
-              <span className="ml-2 font-bold text-[#1D1D1F]">{COPY.hero.socialProof.rating}</span>
-              <span className="text-[#86868B] text-sm font-medium">({COPY.hero.socialProof.reviews})</span>
             </div>
-            <p className="text-sm font-medium text-[#86868B] italic text-center">
-              "{COPY.hero.socialProof.testimonial}" — <span className="text-[#1D1D1F] not-italic font-bold">{COPY.hero.socialProof.author}</span>
+            <span className="text-sm font-bold text-[#F59E0B]">4.9/5</span>
+            <span className="text-gray-400 mx-1">•</span>
+            <span className="text-sm font-medium text-gray-500">{COPY.hero.socialProof.reviews}</span>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.2} className="w-full max-w-2xl bg-[#FFF7ED] p-8 md:p-12 rounded-[40px] border-2 border-[#F97316] shadow-xl relative mb-12 group">
+          <div className="flex flex-col items-center">
+            <p className="text-xs md:text-sm font-black text-[#F97316] uppercase tracking-[0.2em] mb-8 bg-white px-4 py-1.5 rounded-full border border-[#F97316]/20 shadow-sm">
+              Oferta Exclusiva por Tempo Limitado
+            </p>
+
+            <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">
+              De R$ 97 por apenas:
+            </p>
+
+            <div className="flex flex-col items-center mb-10">
+              <span className="text-7xl md:text-9xl font-black text-[#2D3748] tracking-tighter">
+                R$ 19,90
+              </span>
+              <p className="text-emerald-600 font-bold text-lg md:text-xl mt-3 flex items-center gap-2 bg-emerald-50 px-5 py-2 rounded-full border border-emerald-100">
+                <Check size={20} /> ou 2x de R$ 10,95 sem juros
+              </p>
+            </div>
+
+            <Countdown className="mb-12" />
+
+            <p className="text-[13px] font-bold text-red-500 uppercase tracking-wide mb-2">
+              ⚠️ ATENÇÃO: Depois disso, volta para R$ 97
             </p>
           </div>
-          <div className="h-px bg-gray-100 w-full mt-8" />
         </FadeIn>
 
-        <FadeIn delay={0.3} className="bg-black/95 p-8 md:p-12 rounded-[40px] shadow-2xl w-full max-w-2xl mb-12 border border-white/10 relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-emerald-500 to-red-500" />
-          <Countdown />
+        <AnimatePresence>
+          {isUnlocked && (
+            <FadeIn delay={0.3} className="w-full max-w-xl">
+              <div className="flex flex-col items-center gap-8">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="h-20 w-full rounded-full bg-[#10B981] hover:bg-[#059669] text-white text-xl font-bold shadow-2xl shadow-emerald-500/30 transform hover:scale-[1.02] transition-all"
+                  onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  {COPY.hero.cta}
+                </Button>
 
-          <div className="mt-12 flex flex-col items-center">
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 text-center">De R$ 97 por apenas:</p>
-            <div className="flex flex-col items-center mb-10">
-              <span className="text-6xl md:text-8xl font-bold text-white tracking-tighter">R$ 19,90</span>
-              <p className="text-emerald-400 font-bold text-lg md:text-xl mt-2 text-center">ou 2x de R$ 10,95 sem juros</p>
-            </div>
-
-            <Button variant="secondary" size="lg" className="h-16 md:h-20 px-12 md:px-16 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white text-lg md:text-xl font-bold shadow-xl shadow-blue-500/20 w-full transition-transform hover:scale-[1.02]" onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}>
-              {COPY.hero.cta}
-            </Button>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] md:text-[13px] font-bold text-gray-500 uppercase tracking-wider text-center">
-              <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Acesso Imediato</span>
-              <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Garantia 7 Dias</span>
-              <span className="flex items-center gap-2"><Check size={16} className="text-emerald-500" /> Pagamento Seguro</span>
-            </div>
-          </div>
-        </FadeIn>
+                <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm font-bold text-[#64748B] uppercase tracking-wider">
+                  <span className="flex items-center gap-2.5"><Check size={18} className="text-[#10B981] stroke-[3]" /> Acesso Imediato</span>
+                  <span className="flex items-center gap-2.5"><Check size={18} className="text-[#10B981] stroke-[3]" /> Garantia 7 Dias</span>
+                  <span className="flex items-center gap-2.5"><Check size={18} className="text-[#10B981] stroke-[3]" /> Pagamento Seguro</span>
+                </div>
+              </div>
+            </FadeIn>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
@@ -537,17 +564,17 @@ const SocialProof = () => {
 
 const Offer = () => {
   return (
-    <Section id="offer" className="bg-[#000000]">
+    <Section id="offer" className="bg-[#1A202C]">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Removed order-2 class to ensure this text column appears first on mobile */}
         <div>
           <FadeIn>
-            <h2 className="text-3xl md:text-6xl font-semibold text-white mb-2 tracking-tight">Comece agora.</h2>
+            <h2 className="text-3xl md:text-6xl font-bold text-white mb-2 tracking-tight leading-[1.1]">Comece agora.</h2>
             {/* User requested 'what is in the image' under 'comece agora'. The text 'MÉTODO PROJETO 3F' is in the image. Styling it to match the image style. */}
-            <p className="text-sm font-bold text-[#86868B] uppercase tracking-[0.2em] mb-12">Método Projeto 3F</p>
+            <p className="text-sm font-bold text-[#A0AEC0] uppercase tracking-[0.2em] mb-12">Método Projeto 3F</p>
 
-            <p className="text-xl md:text-2xl text-[#86868B] mb-12">
-              Tudo o que você precisa para transformar sua alimentação, em um único pacote.
+            <p className="text-xl md:text-2xl text-[#A0AEC0] mb-12 leading-relaxed">
+              Tudo o que você precisa para transformar sua alimentação, em um único pacote completo.
             </p>
           </FadeIn>
 
@@ -555,17 +582,17 @@ const Offer = () => {
             <ul className="space-y-5 mb-12">
               {[
                 "Receitas de Café da Manhã (PDF)",
-                "Guia de Substituições",
-                "Calculadora de Calorias",
-                "Grupo VIP 30 Dias",
-                "Guia de Salvamento",
-                "Plano 30 Dias"
+                "Guia de Substituições Eficientes",
+                "Calculadora de Calorias Automática",
+                "Grupo VIP de Suporte 30 Dias",
+                "Guia de Salvamento Nutricional",
+                "Plano Prático de 30 Dias"
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-4">
-                  <div className="w-5 h-5 rounded-full bg-[#0071E3] flex items-center justify-center shrink-0">
-                    <Check size={12} className="text-white" />
+                <li key={i} className="flex items-center gap-4 group">
+                  <div className="w-6 h-6 rounded-full bg-[#10B981] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <Check size={14} className="text-white stroke-[3]" />
                   </div>
-                  <span className="text-gray-300 font-medium text-lg">{item}</span>
+                  <span className="text-[#CBD5E0] font-medium text-lg">{item}</span>
                 </li>
               ))}
             </ul>
@@ -575,38 +602,41 @@ const Offer = () => {
         {/* Removed order-1 class to ensure this pricing card column appears second on mobile */}
         <div>
           <FadeIn delay={0.3}>
-            <div className="bg-[#1c1c1e] rounded-[40px] p-6 md:p-14 text-center border border-white/5 relative overflow-hidden group shadow-2xl">
-              <div className="mb-10 transform scale-90 md:scale-100">
-                <Countdown />
+            <div className="bg-[#2D3748] rounded-[40px] p-8 md:p-14 text-center border border-white/5 relative overflow-hidden group shadow-2xl">
+              <div className="mb-12">
+                <Countdown className="transform scale-90 md:scale-100" />
               </div>
 
               <div className="flex flex-col items-center mb-10">
-                <div className="flex items-center gap-4 mb-2">
-                  <span className="text-lg text-[#6E6E73] line-through font-medium">{COPY.pricing.totalValue}</span>
-                  <span className="text-5xl md:text-7xl font-bold text-white tracking-tight">{COPY.pricing.priceCash}</span>
+                <div className="flex flex-col items-center gap-1 mb-4">
+                  <span className="text-lg text-[#718096] line-through font-bold">De {COPY.pricing.totalValue}</span>
+                  <p className="text-xs font-black text-amber-400 uppercase tracking-widest">Oferta Hoje:</p>
                 </div>
-                <p className="text-[#86868b] text-lg font-medium">{COPY.pricing.priceInstallments}</p>
-                <p className="text-emerald-400 text-sm font-bold mt-2">{COPY.pricing.dailyCost}</p>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-6xl md:text-8xl font-black text-white tracking-tighter">{COPY.pricing.priceCash}</span>
+                </div>
+                <p className="text-[#A0AEC0] text-xl font-bold">{COPY.pricing.priceInstallments}</p>
+                <p className="text-emerald-400 text-sm font-black mt-3 uppercase tracking-wider">{COPY.pricing.dailyCost}</p>
               </div>
 
               <Button
                 variant="secondary"
                 size="lg"
                 fullWidth
-                className="h-14 text-lg font-semibold rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white border-none shadow-xl shadow-blue-900/20 mb-8 transition-transform hover:scale-[1.02]"
+                className="h-20 text-xl font-bold rounded-full bg-[#10B981] hover:bg-[#059669] text-white border-none shadow-2xl shadow-emerald-500/20 mb-10 transition-transform hover:scale-[1.02]"
                 onClick={() => window.open(CHECKOUT_URL, '_blank')}
               >
                 {COPY.pricing.cta}
               </Button>
 
-              <div className="flex items-center justify-center gap-2 text-[13px] text-[#86868b] font-medium mb-10">
-                <ShieldCheck size={14} />
-                <span>Garantia de 7 dias • Compra Segura</span>
+              <div className="flex items-center justify-center gap-3 text-sm text-[#A0AEC0] font-bold mb-10">
+                <ShieldCheck size={18} className="text-emerald-500" />
+                <span>Garantia de 7 dias • Compra 100% Segura</span>
               </div>
 
-              <div className="pt-8 border-t border-white/5">
-                <p className="text-xs text-[#52525b] uppercase tracking-[0.2em] font-bold">
-                  Método Projeto 3F
+              <div className="pt-10 border-t border-white/5">
+                <p className="text-xs text-[#718096] uppercase tracking-[0.3em] font-black">
+                  Protocolo Projeto 3F
                 </p>
               </div>
             </div>

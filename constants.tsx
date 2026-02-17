@@ -11,8 +11,8 @@ const bonusComunidade = "https://698bdb7424e527939449aabf.imgix.net/bonus-comuni
 
 export const COPY = {
   hero: {
-    headline: "Delicioso. Saudável. Simples.",
-    subheadline: "Receitas incríveis para fazer em até 10 minutos. Feitas com amor para quem não quer sofrer para ter dia dia.",
+    headline: "Transforme Suas Refeições em 10 Minutos (Sem Abrir Mão do Sabor)",
+    subheadline: "Mais de 200 Receitas Práticas, Deliciosas e Saudáveis Que Toda a Família Vai Adorar.",
     cta: "🔒 GARANTIR ACESSO POR R$ 19,90",
     socialProof: {
       rating: "4.9/5",
