@@ -177,12 +177,17 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
 
             <div className="flex flex-col items-center mb-10">
               <span className="text-7xl md:text-9xl font-black text-[#2D3748] tracking-tighter">
-                R$ 19,90
+                {COPY.pricing.priceCash}
               </span>
-              <p className="text-emerald-600 font-bold text-lg md:text-xl mt-3 flex items-center gap-2 bg-emerald-50 px-5 py-2 rounded-full border border-emerald-100 shadow-sm transition-transform hover:scale-105">
-                <Check size={20} /> ou 2x de R$ 10,95 sem juros
-              </p>
-              <div className="mt-4 bg-[#10B981] text-white px-4 py-1.5 rounded-full text-sm font-black shadow-lg shadow-emerald-500/20 animate-bounce">
+              <div className="flex flex-col items-center gap-2 mt-4">
+                <p className="text-emerald-600 font-bold text-lg md:text-xl flex items-center gap-2 bg-emerald-50 px-5 py-2 rounded-full border border-emerald-100 shadow-sm transition-transform hover:scale-105">
+                  <Check size={20} /> {COPY.pricing.priceInstallments}
+                </p>
+                <p className="text-[#F97316] font-bold text-sm md:text-base animate-pulse">
+                  {COPY.pricing.dailyCost}
+                </p>
+              </div>
+              <div className="mt-6 bg-[#10B981] text-white px-4 py-1.5 rounded-full text-sm font-black shadow-lg shadow-emerald-500/20">
                 {COPY.pricing.savingsLabel}
               </div>
             </div>
@@ -648,7 +653,7 @@ const Offer = () => {
                   <p className="text-emerald-400 text-2xl font-black mt-2 tracking-tight">
                     {COPY.pricing.priceInstallments}
                   </p>
-                  <p className="text-[#94A3B8] text-sm font-bold mt-4 uppercase tracking-widest bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
+                  <p className="text-amber-400 text-base font-bold mt-4 uppercase tracking-widest bg-amber-400/5 px-6 py-2 rounded-full border border-amber-400/10 animate-pulse">
                     {COPY.pricing.dailyCost}
                   </p>
                 </div>

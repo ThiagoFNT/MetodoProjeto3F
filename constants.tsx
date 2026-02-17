@@ -143,9 +143,9 @@ export const COPY = {
   ] as Testimonial[],
   pricing: {
     totalValue: "R$ 144",
-    priceInstallments: "2x de R$ 10,95 sem juros",
+    priceInstallments: "ou 12x de R$ 2,06 sem juros",
     priceCash: "R$ 19,90",
-    dailyCost: "Menos de R$ 0,67 por dia!",
+    dailyCost: "☕ Menos que 1 café na padaria!",
     savingsLabel: "💰 Você economiza R$ 77,10 (79% OFF)",
     cta: "🔒 GARANTIR POR R$ 19,90 - ACESSO IMEDIATO"
   },
