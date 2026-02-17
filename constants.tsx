@@ -145,7 +145,6 @@ export const COPY = {
     totalValue: "R$ 144",
     priceInstallments: "ou 12x de R$ 2,06 sem juros",
     priceCash: "R$ 19,90",
-    dailyCost: "☕ Menos que 1 café na padaria!",
     savingsLabel: "💰 Você economiza R$ 77,10 (79% OFF)",
     cta: "🔒 GARANTIR POR R$ 19,90 - ACESSO IMEDIATO"
   },

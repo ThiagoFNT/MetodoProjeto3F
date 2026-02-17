@@ -183,9 +183,6 @@ const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
                 <p className="text-emerald-600 font-bold text-lg md:text-xl flex items-center gap-2 bg-emerald-50 px-5 py-2 rounded-full border border-emerald-100 shadow-sm transition-transform hover:scale-105">
                   <Check size={20} /> {COPY.pricing.priceInstallments}
                 </p>
-                <p className="text-[#F97316] font-bold text-sm md:text-base animate-pulse">
-                  {COPY.pricing.dailyCost}
-                </p>
               </div>
               <div className="mt-6 bg-[#10B981] text-white px-4 py-1.5 rounded-full text-sm font-black shadow-lg shadow-emerald-500/20">
                 {COPY.pricing.savingsLabel}
@@ -652,9 +649,6 @@ const Offer = () => {
                   </span>
                   <p className="text-emerald-400 text-2xl font-black mt-2 tracking-tight">
                     {COPY.pricing.priceInstallments}
-                  </p>
-                  <p className="text-amber-400 text-base font-bold mt-4 uppercase tracking-widest bg-amber-400/5 px-6 py-2 rounded-full border border-amber-400/10 animate-pulse">
-                    {COPY.pricing.dailyCost}
                   </p>
                 </div>
 
