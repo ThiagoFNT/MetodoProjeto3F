@@ -19,7 +19,7 @@ import {
 import { COPY } from '../constants';
 import { Button, Card, Section, SectionHeading } from './UI';
 
-const CHECKOUT_URL = "https://checkout.payt.com.br/1bf14669c84cfca7fdfb516b8301de00";
+const CHECKOUT_URL = "https://pay.hotmart.com/E104503537F?checkoutMode=10&bid=1771371630908";
 
 // --- Components ---
 
